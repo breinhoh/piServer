@@ -1,0 +1,16 @@
+language: go
+
+go:
+  - 1.7
+  - 1.8.x
+  - master
+
+services:
+  - couchdb
+
+install:
+
+script:
+
+
+after_success:
