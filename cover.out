@@ -1,9 +1,0 @@
-mode: set
-piServer/configs/config.go:17.31,27.2 2 0
-piServer/configs/config.go:29.49,31.20 2 1
-piServer/configs/config.go:36.2,36.19 1 1
-piServer/configs/config.go:31.20,32.58 1 1
-piServer/configs/config.go:32.58,34.4 1 1
-piServer/configs/config.go:39.58,41.20 2 1
-piServer/configs/config.go:44.2,44.19 1 1
-piServer/configs/config.go:41.20,43.3 1 1
