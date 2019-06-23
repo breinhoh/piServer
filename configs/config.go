@@ -5,7 +5,8 @@ import (
 	"strconv"
 )
 
-type myDBConfig struct {
+// MyDBConfig database config values
+type MyDBConfig struct {
 	IP       string `json:"ip"`
 	Username string `json:"username"`
 	Password string `json:"password"`
@@ -14,9 +15,10 @@ type myDBConfig struct {
 	Name     string `json:"name"`
 }
 
-func GetDBConfig() myDBConfig {
-	config := myDBConfig{
-		IP:       getEnvString("DB_IP", "0.0.0.0"),
+// GetDBConfig returns the database configurations
+func GetDBConfig() MyDBConfig {
+	config := MyDBConfig{
+		IP:       getEnvString("DB_IP", ""),
 		Username: getEnvString("DB_USERNAME", ""),
 		Password: getEnvString("DB_PASSWORD", ""),
 		Port:     getEnvInt("DB_PORT", 0),
@@ -27,7 +29,7 @@ func GetDBConfig() myDBConfig {
 }
 
 func getEnvInt(name string, defaultVal int) int {
-	valueStr := os.Getenv(name)
+	valueStr, _ := os.LookupEnv(name)
 	if valueStr != "" {
 		if valueInt, err := strconv.Atoi(valueStr); err == nil {
 			return valueInt
@@ -37,7 +39,7 @@ func getEnvInt(name string, defaultVal int) int {
 }
 
 func getEnvString(name string, defaultVal string) string {
-	valueStr := os.Getenv(name)
+	valueStr, _ := os.LookupEnv(name)
 	if valueStr != "" {
 		return valueStr
 	}
